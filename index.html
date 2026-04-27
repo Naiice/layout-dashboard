@@ -179,13 +179,13 @@
         // [ ส่วนของระบบ Dashboard และ Attendance ]
         // ============================================================================
         const STATUS_LEGEND = [
-            { label: 'มาปกติ', color: 'text-emerald-500', bg: 'bg-[#22c55e]' },
-            { label: 'สาย', color: 'text-orange-500', bg: 'bg-[#f97316]' },
-            { label: 'ลาป่วย', color: 'text-slate-400', bg: 'bg-[#94a3b8]' },
-            { label: 'ลากิจ', color: 'text-fuchsia-500', bg: 'bg-[#d946ef]' },
-            { label: 'ลาอื่นๆ', color: 'text-blue-500', bg: 'bg-[#3b82f6]' },
-            { label: 'ขาดงาน', color: 'text-red-500', bg: 'bg-[#ef4444]' },
-            { label: 'ลาออก', color: 'text-slate-800', bg: 'bg-[#1e293b]' }
+            { label: 'มาปกติ', zh: '正常', color: 'text-emerald-500', bg: 'bg-[#22c55e]' },
+            { label: 'สาย', zh: '迟到', color: 'text-orange-500', bg: 'bg-[#f97316]' },
+            { label: 'ลาป่วย', zh: '病假', color: 'text-slate-400', bg: 'bg-[#94a3b8]' },
+            { label: 'ลากิจ', zh: '事假', color: 'text-fuchsia-500', bg: 'bg-[#d946ef]' },
+            { label: 'ลาอื่นๆ', zh: '其他', color: 'text-blue-500', bg: 'bg-[#3b82f6]' },
+            { label: 'ขาดงาน', zh: '旷工', color: 'text-red-500', bg: 'bg-[#ef4444]' },
+            { label: 'ลาออก', zh: '离职', color: 'text-slate-800', bg: 'bg-[#1e293b]' }
         ];
 
         const SECTIONS = [
@@ -831,7 +831,10 @@
                                         <div className={`w-[20px] h-[20px] rounded ${l.bg} flex items-center justify-center shadow-sm`}>
                                             <i className="fa-solid fa-user text-white text-[10px]"></i>
                                         </div>
-                                        <span className="text-[11px] font-black text-slate-700">{l.label}</span>
+                                        <div className="flex items-baseline gap-1">
+                                            <span className="text-[11px] font-black text-slate-700">{l.label}</span>
+                                            <span className="text-[9px] font-bold text-slate-400">{l.zh}</span>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
@@ -840,28 +843,28 @@
                                     <i className="fa-solid fa-users text-[#3b82f6] text-[20px]"></i>
                                     <div className="text-center leading-tight">
                                         <p className="text-[18px] font-black text-slate-800 leading-none">{stats.total}</p>
-                                        <p className="text-[9px] font-black text-slate-400 mt-1">ทั้งหมด</p>
+                                        <p className="text-[10px] font-black text-slate-600 mt-1">ทั้งหมด <span className="text-[9px] text-slate-400 font-bold ml-0.5">总人数</span></p>
                                     </div>
                                 </div>
                                 <div className="bg-white border border-slate-200 px-5 py-2.5 rounded-[1.2rem] shadow-sm flex items-center justify-center gap-3 min-w-[100px]">
                                     <i className="fa-solid fa-id-badge text-[#06b6d4] text-[20px]"></i>
                                     <div className="text-center leading-tight">
                                         <p className="text-[18px] font-black text-slate-800 leading-none">{stats.came}</p>
-                                        <p className="text-[9px] font-black text-slate-400 mt-1">มาจริง</p>
+                                        <p className="text-[10px] font-black text-slate-600 mt-1">มาจริง <span className="text-[9px] text-slate-400 font-bold ml-0.5">实际出勤</span></p>
                                     </div>
                                 </div>
                                 <div className="bg-white border border-slate-200 px-5 py-2.5 rounded-[1.2rem] shadow-sm flex items-center justify-center gap-3 min-w-[100px]">
                                     <i className="fa-solid fa-user-check text-[#10b981] text-[20px]"></i>
                                     <div className="text-center leading-tight">
                                         <p className="text-[18px] font-black text-slate-800 leading-none">{stats.normal}</p>
-                                        <p className="text-[9px] font-black text-slate-400 mt-1">มาปกติ</p>
+                                        <p className="text-[10px] font-black text-slate-600 mt-1">มาปกติ <span className="text-[9px] text-slate-400 font-bold ml-0.5">正常出勤</span></p>
                                     </div>
                                 </div>
                                 <div className="bg-white border border-slate-200 px-5 py-2.5 rounded-[1.2rem] shadow-sm flex items-center justify-center gap-3 min-w-[100px]">
                                     <i className="fa-solid fa-arrow-trend-up text-[#10b981] text-[20px]"></i>
                                     <div className="text-center leading-tight">
                                         <p className="text-[18px] font-black text-slate-800 leading-none">{stats.rate}%</p>
-                                        <p className="text-[9px] font-black text-slate-400 mt-1">มาทำงาน %</p>
+                                        <p className="text-[10px] font-black text-slate-600 mt-1">มาทำงาน % <span className="text-[9px] text-slate-400 font-bold ml-0.5">出勤率</span></p>
                                     </div>
                                 </div>
                             </div>
